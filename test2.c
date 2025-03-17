@@ -1,69 +1,55 @@
 #include<stdio.h>
+#include <stdlib.h> // dynamically allocated memory libruary
 
-void add_one(int *a);
-void add_one_trio(int *a, int *b, int *c);
-void add_one_array(int array[], int length);
-void add_one_array_star(int *array, int length);
+// void add_one(int *array, int length);
+// int fund(void);
 
 int main(void)
 {
-    int b = 5;
-    printf("&b: %p\n", &b);
-    add_one(&b);
-    printf("b: %d\n", b);
+    // int a[] = {1,2,3,4,5,6,7,8,9,10};
+    // add_one(a + 5, 5);
+    // for (int i = 0; i < 10; i++)
+    //     printf("a[%d] = %d\n", i, a[i]);
+    // int a = 5;
+    // int b = 6;
+    // func();
 
-    int x1 = 1, x2 = 2, x3 = 3;
-    add_one_trio(&x1, &x2, &x3);
-    printf("x1: %d\n", x1);
-    printf("x2: %d\n", x2);
-    printf("x3: %d\n", x3);
-
-    int a[] = {1,2,3};
-    add_one_array(a, 3);
-    for (int i = 0; i < 3; i++)
-        printf("a[%d]=%d\n", i, a[i]);
-        
-    add_one_array_star(a, 3);
-    for (int i = 0; i < 3; i++)
-        printf("a[%d]=%d\n", i, a[i]);
-
-    int *p;
-    p = a;
-    printf("p: %p\n", p);
-    printf("a: %p\n", a);
-
-    printf("p[2] = %d\n", p[2]);
-    printf("a[2] = %d\n", a[2]);
-
-    // point rotation like this
-    printf("*p = %d\n", *p);
-    printf("*(p + 1) = %d\n", *(p + 1));
-    printf("*(p + 2) = %d\n", *(p + 2));
-    printf("*(a + 1) = %d\n", *(a + 1));
-    printf("*(a + 2) = %d\n", *(a + 2));
-
+    int *a;
+    a = malloc( sizeof(int) * 5 );   // allocation block space
+    a[0] = 1;
+    a[1] = 5;
+    a[2] = 7;
+    a[3] = 9;
+    a[4] = 11;
+    for (int i = 0; i < 5; i++)
+        printf("a[%d] = %d\n", i, a[i]);
     
+    int *b;
+    b = calloc( 5, sizeof(int) );   // allocation block space
+    b[0] = 1;
+    b[1] = 5;
+    b[2] = 7;
+    b[3] = 9;
+    b[4] = 11;
+    for (int i = 0; i < 5; i++)
+        printf("b[%d] = %d\n", i, b[i]);
+
+    free(a);    // don't forget free
+    free(b);
     return 0;
 }
 
-void add_one(int *a)
-{
-    printf(" a: %p\n", a);
-    *a = *a + 1;
-}
-void add_one_trio(int *a, int *b, int *c)
-{
-    *a = *a + 1;
-    *b = *b + 1;
-    *c = *c + 1;
-}
-void add_one_array(int array[], int length)
-{
-    for (int i = 0; i < length; i++)
-        array[i] += 1;
-}
-void add_one_array_star(int *array, int length)
-{
-    for (int i = 0; i < length; i++)
-        array[i] += 1;
-}
+// int fund(void)
+// {
+//     int c = 8;
+//     int d = 10;
+//     int e[10];
+//     int f = 9;
+//     // I can't extention array e[]
+// }
+
+// void add_one(int *array, int length)
+// {
+//     for (int i = 0; i < length; i++)
+//         array[i] += 1;
+// }
