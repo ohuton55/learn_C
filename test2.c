@@ -2,6 +2,12 @@
 #include<stdlib.h>
 #include <string.h> // for string copy
 
+#define ROWS 2
+#define COLS 3
+
+void print_array(int data[ROWS][COLS]);
+void input_array(int data[ROWS][COLS]);
+
 typedef int inches; // create type
 struct Point
 {
@@ -103,7 +109,13 @@ int main(void)
         printf("a.array[%d] = %d\n", i, a.array[i]);
 
     free(a.array);
+    
 
+    int data[ROWS][COLS] = { {1,2,3},
+                        {4,5,6} };
+    input_array(data);
+    print_array(data);
+                                           
     return 0;
 }
 
@@ -119,4 +131,21 @@ void print_student(Student s)
 void age_student(Student *s)
 {
     s->age += 1;
+}
+
+void print_array(int data[ROWS][COLS])
+{
+    for (int i = 0; i < ROWS; i++)
+        for (int j = 0; j < COLS; j++)
+            printf("data[%d][%d] = %d\n", i, j,
+                                    data[i][j]);
+}
+void input_array(int data[ROWS][COLS])
+{
+    for (int i = 0; i < ROWS; i++)
+        for (int j = 0; j < COLS; j++)
+        {
+            printf("data[%d][%d]=", i, j);
+            scanf("%d", &data[i][j]);
+        }
 }
