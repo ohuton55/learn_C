@@ -1,22 +1,15 @@
 #include<stdio.h>
-#include<stdlib.h>
 
 int main(int argc, char *argv[])
 {
-    if (argc == 3)
-    {
-        int num_times = atoi(argv[2]);
-    
-        for (int i = 0; i < num_times; i++)
-            printf("%s\n", argv[1]);
+    // (type) expression
+    // (bouble) a
+    int a = 5;
+    int b = 2;  // b id upgraded to double
+    double c = (double)a / b;   // conversion first a
+    //double c = (double)(a / b);   // conversion after a / b
 
-    }
-    else
-    {
-        printf("2 argument except.\n");
-        printf("1st - string to print out\n");
-        printf("2st - # of times to print\n");
-        return 1;
-    }
-
+    printf("%d / %d = %d\n", a, b, a / b);
+    printf("%d / %d = %f\n", a, b, c);
+    return 0;
 }
