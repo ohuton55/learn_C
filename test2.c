@@ -1,32 +1,12 @@
 #include<stdio.h>
-#include<stdlib.h>
-
-#define NAME 5
-
-int y = 10; // global valuable cause hard understand
-
-void func();
 
 int main(int argc, char *argv[])
 {
-    int y = 2;
-    printf("y: %d\n", y);
-    printf("%d\n", NAME);
-    
-    // I can't assignment again this value
-    const int x = 5;
-    y++;
-    
-    printf("%d\n", x + 2);
-    func();
+    char buffer[100];
+    printf("Enter: ");
+    //scanf("%s", buffer);    // space is done
+    fgets(buffer, 100, stdin);  // input from terminal to buffer. can contains space.
+    printf("Buffer: %s\n", buffer);
 
     return 0;
-}
-
-void func()
-{
-    // const value can't access here
-    printf("%d\n", NAME);
-    y++;
-    printf("y: %d\n", y);
 }
